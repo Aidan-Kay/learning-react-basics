@@ -4,6 +4,7 @@ import { ValidatedForm } from "./ValidatedForm";
 import { Form } from "./Form";
 import { SimplePropsTest } from "./SimplePropsTest";
 import { CounterWithState } from "./CounterWithState";
+import { RandomUser } from "./RandomUser";
 
 class Playground extends Component {
   add(a, b) {
@@ -33,14 +34,10 @@ class Playground extends Component {
           funcFromClass={this.add}
           lambaFunc={(a, b) => a + b}
         />
-
         <hr className="Separator"></hr>
-
         <p className="Text-muted">Functional component with props</p>
         <FunctionalCompWithProps text="Text from prop" />
-
         <hr className="Separator"></hr>
-
         <p className="Text-muted">
           State will be lost with the below counter as we are destroying the
           comp
@@ -48,7 +45,6 @@ class Playground extends Component {
         {this.state.counterVisible ? (
           <CounterWithState initialCount={0} visible={true} />
         ) : null}
-
         <p className="Text-muted">
           State will be kept with the below counter as we are not destroying the
           comp
@@ -56,7 +52,6 @@ class Playground extends Component {
         <div style={this.state.counterVisible ? {} : { display: "none" }}>
           <CounterWithState initialCount={0} visible={true} />
         </div>
-
         <button
           className="App-button"
           onClick={() =>
@@ -65,16 +60,15 @@ class Playground extends Component {
         >
           {this.state.counterVisible ? "Hide counters" : "Show counters"}
         </button>
-
         <hr className="Separator"></hr>
-
         <p className="Text-muted">Simple form (see console log)</p>
         <Form />
-
         <hr className="Separator"></hr>
-
         <p className="Text-muted">Simple form with validation</p>
         <ValidatedForm />
+        <hr className="Separator"></hr>
+        <p className="Text-muted">Api request</p>
+        <RandomUser />
       </div>
     );
   }
